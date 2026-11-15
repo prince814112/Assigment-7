@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 07 - CSS Grid Practice Pack</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Assignment 07 - CSS Grid Practice Pack (Single Combined Stylesheet) */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #eff5f4;
+    color: #122b27;
+    padding: 32px 20px;
+    line-height: 1.5;
+}
+
+.main-wrapper {
+    max-width: 1020px;
+    margin: 0 auto;
+}
+
+/* Header Styling */
+.assignment-header {
+    margin-bottom: 30px;
+}
+
+.top-tag {
+    font-size: 13px;
+    font-weight: bold;
+    color: #0e6b60;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.assignment-header h1 {
+    font-size: 34px;
+    color: #102a26;
+    margin-bottom: 6px;
+}
+
+.sub-info {
+    font-size: 15px;
+    color: #4f6b66;
+}
+
+/* Section Wrappers */
+.practice-block {
+    margin-bottom: 42px;
+}
+
+.section-heading {
+    font-size: 16px;
+    color: #0e6b60;
+    margin-bottom: 14px;
+}
+
+/* ==========================================
+   01. GALLERY GRID (3 columns, 9 images)
+   ========================================== */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.gallery-item {
+    background-color: #d8e6e2;
+    border: 1px solid #c5d8d3;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 145px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================================
+   02. PRODUCT GRID (Auto-fit & minmax)
+   ========================================== */
+.store-grid {
+    display: grid;
+    /* Reflows columns automatically based on available width */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.product-card {
+    background-color: #f7fbfa;
+    border: 1px solid #cce0dc;
+    border-radius: 8px;
+    padding: 20px 18px;
+    min-height: 115px;
+}
+
+.product-card h3 {
+    font-size: 17px;
+    color: #102a26;
+    margin-bottom: 8px;
+}
+
+.product-card p {
+    font-size: 14px;
+    color: #2c4a45;
+}
+
+.code-note {
+    margin-top: 18px;
+}
+
+.formula-text {
+    font-size: 17px;
+    font-weight: bold;
+    color: #0e6b60;
+    margin-bottom: 4px;
+}
+
+.formula-sub {
+    font-size: 15px;
+    color: #1d3834;
+}
+
+/* ==========================================
+   03. DASHBOARD LAYOUT (Named Grid Areas)
+   ========================================== */
+.portal-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 16px;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+}
+
+.dash-header {
+    grid-area: header;
+    background-color: #133b37;
+    color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+
+.bar-title {
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 0.4px;
+}
+
+.bar-links a {
+    color: #e2f2ef;
+    text-decoration: none;
+    font-size: 13px;
+    margin-left: 14px;
+}
+
+.bar-links a:hover {
+    text-decoration: underline;
+}
+
+.dash-sidebar {
+    grid-area: sidebar;
+    background-color: #d7e6e3;
+    border: 1px solid #c2d6d2;
+    border-radius: 8px;
+    padding: 22px 18px;
+    min-height: 360px;
+}
+
+.dash-sidebar h3 {
+    font-size: 16px;
+    color: #102a26;
+    margin-bottom: 16px;
+}
+
+.sidebar-list {
+    list-style: none;
+}
+
+.sidebar-list li {
+    margin-bottom: 10px;
+}
+
+.sidebar-list a {
+    text-decoration: none;
+    color: #1c3d38;
+    font-size: 15px;
+}
+
+.sidebar-list a:hover {
+    font-weight: bold;
+}
+
+.dash-main {
+    grid-area: main;
+    background-color: #ffffff;
+    border: 1px solid #cce0dc;
+    border-radius: 8px;
+    padding: 26px 24px;
+}
+
+.dash-main h3 {
+    font-size: 19px;
+    color: #102a26;
+    margin-bottom: 20px;
+}
+
+/* Inner 3-card grid inside Main */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.stat-card {
+    background-color: #f7fbfa;
+    border: 1px solid #cce0dc;
+    border-radius: 8px;
+    padding: 18px 16px;
+    min-height: 110px;
+}
+
+.stat-card h4 {
+    font-size: 16px;
+    color: #102a26;
+    margin-bottom: 8px;
+}
+
+.stat-card p {
+    font-size: 14px;
+    color: #2c4a45;
+}
+
+.activity-msg {
+    font-size: 15px;
+    color: #1d3834;
+}
+
+.dash-footer {
+    grid-area: footer;
+    background-color: #133b37;
+    color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+    </style>
+
+</head>
+<body>
+
+    <div class="main-wrapper">
+
+        <!-- Top Assignment Header -->
+        <header class="assignment-header">
+            <p class="top-tag">BTECH YEAR 1 / HTML & CSS / ASSIGNMENT 07</p>
+            <h1>Grid Practice Pack</h1>
+            <p class="sub-info">Three Grid layouts combined • Campus gallery, auto-fit store, and named-area dashboard</p>
+        </header>
+
+        <!-- ==========================================
+             SECTION 01: GALLERY (At least 9 images)
+             ========================================== -->
+        <section class="practice-block">
+            <h2 class="section-heading">01 / gallery.html · At least 9 images</h2>
+
+            <div class="photo-gallery">
+                <!-- TODO: Replace image URLs with local photos if you want -->
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/10/500/300" alt="Misty green mountains and pine forest">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/20/500/300" alt="Study desk with laptop, notebook, and pencil">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/28/500/300" alt="Dense green forest trail during daytime">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/36/500/300" alt="Camera gear and lens placed on a study table">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/42/500/300" alt="Coffee cup on a wooden table in campus canteen">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/48/500/300" alt="Modern laptop screen showing code editor">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/119/500/300" alt="Silver laptop and work diary on desk">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/160/500/300" alt="Smartphone resting on a clean student workspace">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/id/180/500/300" alt="Open laptop and notebook for semester revision">
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 02: PRODUCT GRID (Auto-fit reflow)
+             ========================================== -->
+        <section class="practice-block">
+            <h2 class="section-heading">02 / product-grid.html · Automatic column reflow</h2>
+
+            <div class="store-grid">
+                <article class="product-card">
+                    <h3>Scientific Calculator</h3>
+                    <p>Engineering lab essential · ₹999</p>
+                </article>
+
+                <article class="product-card">
+                    <h3>Mini Drafter Set</h3>
+                    <p>Engineering graphics kit · ₹450</p>
+                </article>
+
+                <article class="product-card">
+                    <h3>64GB Pen Drive</h3>
+                    <p>Code backup essential · ₹549</p>
+                </article>
+
+                <article class="product-card">
+                    <h3>Spiral Notebooks (x3)</h3>
+                    <p>Semester lecture notes · ₹299</p>
+                </article>
+
+                <article class="product-card">
+                    <h3>USB Type-C Hub</h3>
+                    <p>Hostel desk accessory · ₹699</p>
+                </article>
+
+                <article class="product-card">
+                    <h3>Cotton Lab Coat</h3>
+                    <p>Chemistry practical wear · ₹399</p>
+                </article>
+            </div>
+
+            <div class="code-note">
+                <p class="formula-text">repeat(auto-fit, minmax(200px, 1fr))</p>
+                <p class="formula-sub">More room → more columns. Less room → fewer columns.</p>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 03: DASHBOARD (Named grid areas)
+             ========================================== -->
+        <section class="practice-block">
+            <h2 class="section-heading">03 / dashboard.html · Named grid areas</h2>
+
+            <div class="portal-layout">
+                
+                <!-- Grid Area: header -->
+                <header class="dash-header">
+                    <span class="bar-title">HEADER / STUDENT DASHBOARD</span>
+                    <nav class="bar-links">
+                        <a href="#">Home</a>
+                        <a href="#">Courses</a>
+                        <a href="#">Labs</a>
+                        <a href="#">Contact</a>
+                    </nav>
+                </header>
+
+                <!-- Grid Area: sidebar -->
+                <aside class="dash-sidebar">
+                    <h3>SIDEBAR</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#">Overview</a></li>
+                        <li><a href="#">Subjects</a></li>
+                        <li><a href="#">Assignments</a></li>
+                        <li><a href="#">Settings</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Grid Area: main -->
+                <main class="dash-main">
+                    <h3>MAIN / Learning overview</h3>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h4>HTML5</h4>
+                            <p>8 lessons completed</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>CSS3</h4>
+                            <p>12 lessons completed</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Projects</h4>
+                            <p>3 active repos</p>
+                        </div>
+                    </div>
+
+                    <!-- TODO: Replace [Your Name Here] with your actual name -->
+                    <p class="activity-msg">
+                        Logged in as <strong>Prince Kumar</strong> (BTech CSE Sem 1). Your learning activity appears here.
+                    </p>
+                </main>
+
+                <!-- Grid Area: footer -->
+                <footer class="dash-footer">
+                    <span class="bar-title">FOOTER / CAMPUS LEARNING PORTAL</span>
+                    <nav class="bar-links">
+                        <a href="#">Home</a>
+                        <a href="#">Library</a>
+                        <a href="#">Support</a>
+                        <a href="#">Contact</a>
+                    </nav>
+                </footer>
+
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
